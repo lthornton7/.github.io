@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Offer User Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/portalmd.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            processMarkdown();  
+        });
+    </script>
+</head>
+<body id="body"></body>
+<div id="markdown" style="display:none">
+<div class="container-fluid">
+<div class="valence">
+<header>
+Paydiant Offer Portal Guide
+</header>
+</div>
+<div id="wrapper">
+
+<div class="navigator">
+ 
+</div>
+
+<div class="content">
+<div class="content-inner">
+    
+## Create a new user ##
+
+The Ad Network Admin can create new Campaign Portal users within that Ad Network. 
+
+1. Log into the Campaign Portal as the Ad Network Admin for the Ad Network where the new user will design offers. 
+4.  Click **Manage** and select *User Accounts*.
+5.  Click **+ Create New User**.
+6.  On the **Create New User** screen, enter the information as appropriate for this user. All fields except the Contact Number are required.
+    
+| Field | Instructions |
+| ------ | ----------- |
+| Role  | Use the drop-down menu to choose the selected roles for this user. The Ad Network Admin can create or assign an additional Ad Network Admin, portal users, approvers, or push notification users. Approvers are optional for an Ad Network so you do not need to assign that role to any user in the Ad Network. But if any Approver is assigned within an Ad Network, all offers generated in that Ad Network must be approved before the offers can be made available. If an Approver is required for an offer, the final button choice when you design the offer is **Send for Approval.** Otherwise the final button is **Activate Offer.** |
+| Merchant   | The Advertising Network is automatically displayed. If the role chosen requires identification of the Merchant, choose the Merchants for which this user can create offers. |
+| Username | Enter an account username that the user will use to log in. Username must be a string of up to 15 characters that is unique within the Paydiant Campaign Portal and are case-sensitive.|
+| Email| Enter the email address where correspondence, such as approval notifications from the Campaign Portal, are sent. |
+| Contact Number | Enter a phone number where the user can be contacted. Do not use dashes. |
+|Password | Enter a password for this user to use when logging into the Campaign Portal. Current requirements for passwords are: 8 - 20 characters, contain an upper-case letter, a lower-case letter, a number or one of these special characters: !@#$%^&*()|
+|Confirm Password | Re-enter the same password. If the confirmation does not match the original, the user is not created. |
+`7.  ` Click the **Create User** button to save the new user or click the Cancel button to cancel creation of the user.
+    
+##Editing Users##
+
+Once a Campaign Portal User is created, the Ad Network Admin can change certain details about the user.
+
+To change something about a Campaign Portal user, 
+
+
+1. Ad Network Admins can use **Manage** then **User Accounts**. 
+2. To find a particular Username,  enter the username or a string in the Search box and click **Search**. Other columns display other information about the user; however, only the Username field is used for searching.
+3. When the Username you need displays, click the name in the UserName column. 
+4. Click the **Edit** button.
+
+You can change the following details about the user:
+
+|You want to | Instructions |
+| ------ | ----------- |
+| Change security roles for this user  | Use the drop-down to display and check or uncheck the roles. Users can have more than one role. |
+| Change the set of Merchants that this user can work with |The Advertising Network for this user display but that cannot be changed. Select or unselect Merchants from the drop-down.|
+| Change the username, email, contact info | Edit the info in each box Username must be a case-sensitive string of up to 15 characters that is unique within the Paydiant Campaign Portal.|
+| Change the password | Click **Change Password** to reveal the current settings. Enter the new password and confirm it.|
+| Activate/De-activate a User | By default users are activated when they are created. You can click **No** so the user is created but unable to login or operate, for example, if you want all users to be active on a specific date. Click **Yes** re-activate the user. |
+|Enable User | If you want this user to be able to login and begin working immediately, set to **Yes** which is the default. When set to **No**, the user is on the system but cannot perform any activity. This can be useful when you want to add users but have a future date when they can begin working on offers. This status is also useful in the event that an employee no longer works for the company, but you would like to retain the account for historical and troubleshooting purposes.|
+| Expire Account| Set to **No** by default. Although the full functionality of this feature is not yet available, if this option is set to **Yes** the user cannot login or perform any activity. |
+| Lock Account | Set to **No** by default. Although the full functionality of this feature is not yet available, if this option is set to **Yes** the user cannot login or perform any activity. |
+| Expire Password | Set to **No** by default. Although the full functionality of this feature is not yet available, if this option is set to **Yes** the user cannot login or perform any activity.|
+
+
+  
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</html>

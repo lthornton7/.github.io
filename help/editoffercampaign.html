@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Offer User Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/portalmd.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            processMarkdown();
+ 
+
+        });
+    </script>
+</head>
+<body id="body"></body>
+<div id="markdown" style="display:none">
+<div class="container-fluid">
+<div class="valence">
+<header>
+Paydiant Offer Portal Guide
+</header>
+</div>
+<div id="wrapper">
+
+<div class="navigator">
+
+ 
+
+
+</div>
+
+<div class="content">
+<div class="content-inner">
+
+hiddenanchor {.anchor #editoffer}
+## Edit an Offer Campaign  ##  
+You can click an offer campaign in the Offer List screen at any time during its lifecycle to review its configuration. However, offer editing is limited according to the status of the offer. The table below provides a summary of what actions can be taken relative to each offer state.
+| Status | Field Editing | Clone | Preview | Expire | Delete |
+| ------ | ----------- | -------| -------- | -------| -------|
+|**Pending**| All fields are editable.|Yes|Yes|No|Yes|
+|**Pending Approval**| No fields are editable.|Yes|Yes|No|No|
+|**Rejected**| All fields are editable.|Yes|Yes|No|Yes|
+|**Live**| The following fields are locked for editing: Offer Campaign, External ID, Offer Processing Point, Minimum Spend Value, Discount, Offer Terms and Conditions, Target Customers, Customer Target Type, Processing Type|Yes|Yes|Yes|No|
+|**Expired**| No fields are editable.|Yes|Yes|No|No|
+hiddenanchor {.anchor #deleteoffer}
+## Delete an Offer Campaign {#deleteoffer} ##
+
+To delete an offer campaign:
+1. From the Offer Campaign List page, click the trashcan icon in the far right of the row of the offer you wish to delete.
+2. Click **OK** in the dialog to confirm the deletion.
+
+hiddenanchor {.anchor #expireoffer}
+## Expire an Offer Campaign  ##
+When you expire an offer campaign, the offer becomes invalid and is removed from all mobile wallets in which it was available or active. You may only expire offers that have a status of *Live*.
+    
+To expire an offer campaign:
+1. From the Offer Campaign List page, click the clock icon in the row of the offer you wish to expire.
+2. Click **OK** in the dialog to confirm the expiration.
+    
+hiddenanchor {.anchor #cloneoffer}
+## Clone an Offer Campaign    ##
+    
+You can create a new offer that is pre-populated with values from any existing offer through cloning. When you are creating multiple offers that are very similar, this shortcut can be very useful.
+    
+To clone an offer campaign:
+1. From the Offer Campaign List page, click the copy icon in the row of the offer you wish to clone.
+**Note:** Alternatively, you can click the **Clone** button on the Activation screen of the offer campaign.
+2. In the pop-up editor, configure the start and end dates for the cloned offer and click **Clone**.
+3. At this point the clone is created in a pending state. You can either open the newly created clone to edit it, or you can return to the Offers List screen.
+
+hiddenanchor {.anchor #previewoffer}
+## Preview an Offer Campaign   ##  
+You can see how an offer will appear to wallet users by using the preview feature.
+
+To preview an offer campaign:
+1. From the Offer Campaign List page, click the mobile icon in the row of the offer you wish to preview.
+**Note:** Alternatively, you can click the **Preview** button on the Activation screen of the offer campaign.
+2. In the pop-up editor, the text and graphic elements of your offer are laid out in a default format that approximates how each element will appear in the app.
+
+The preview feature is intended to give you an idea of how the offer will appear in the mobile wallet app. It is not an exact match. In a live wallet app, the Summary view appears as an abstract in the list of offers, while the Details view is shown when the offer is selected. These views are not shown together, as in the preview. Also, if you are using your own app instead of Paydiant’s branded app, the preview may not provide an exact match to the way the finished offer will display.
+
+hiddenanchor {.anchor #approveoffer}
+## Approve an Offer Campaign  ##
+To provide an additional level of control, you can require that a campaign be approved before it becomes activated. To add this level of control, create an [Offer Approver](usermanagement.html?dt=usermanagement) who decides if the campaign is ready to be activated. The Offer Approver can approve or reject the campaign.
+
+To send a campaign for approval click **+Send for Approval**. All approvers for the network receive an email notification. When any one authorized approver approves the offer, the campaign is automatically activated and the offer creator is notified via email.
+
+To review a campaign for approval:
+1. Log into Offer Manager using your Offer Approver account. Click the **Pending Approvals** tab to show all campaigns that are waiting for approval.
+2. Step through the Edit Campaign to examine the details of the campaign and make or note changes as needed. Click **Update** on any screen where you make a change. To preview how the campaign will look on the phone, click the **Offers** tab and use the **Preview** icon. On the last page of the Edit Campaign List, you can also use the **Preview** button to preview the campaign.
+3. To reject the campaign:
+- Click **Reject**.
+- Enter the reason for the rejection in the pop-up prompt and click **Reject** again.
+- When an Offer Approver rejects a campaign, an email is sent to the offer creator indicating the rejection and the reason. The offer creator can click the link provided in the email to access the campaign in the Offer Manager and make any necessary edits, then resubmit the campaign for approval.
+- Repeat this process until the campaign is determined to be ready.
+4. To approve the campaign, click **Activate**. An email notification is sent to the offer creator.
+
+ 
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</html>

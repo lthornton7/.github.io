@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Offer User Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/portalmd.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            processMarkdown();
+ 
+
+        });
+    </script>
+</head>
+<body id="body"></body>
+<div id="markdown" style="display:none">
+<div class="container-fluid">
+<div class="valence">
+<header>
+Paydiant Offer Portal Guide
+</header>
+</div>
+<div id="wrapper">
+
+<div class="navigator">
+
+ 
+</div>
+
+<div class="content">
+<div class="content-inner">
+
+## Appendix A - Example: POS Processed Offers ##
+[id]:AppendixA
+The Cloud supports the ability of the POS system to handle the redemption authorization of a coupon / offer. In this scenario, the Cloud can pass back a known identifier or coupon code to a POS system so that the POS can process this “ID” in a business-as-usual way. Instead of the POS receiving these coupon codes through a bar code scan event, the POS can retrieve them programmatically from the Cloud.
+
+This functionality can be easily implemented by POS systems that have already implemented the RetrieveTransactionMetadata request in a “scan ahead” scenario. The following flow is the typical “scan ahead” implementation and lends itself to allowing a POS system to invoke business logic associated with coupon redemption within this type of flow.
+
+This identifier (or collections of identifiers) is returned back to the POS in the RetrieveTransactionMetadata method. The POS developer must set the appropriate data type in the API request to ensure that the Cloud returns these attributes in the response.
+- **ALL_OFFERS_IN_WALLET** returns all relevant offers for this merchant and location to the POS system.
+- **ONLY_SELECTED_OFFERS** returns only the offers the user has selected from their mobile wallet.
+
+See the example in the following figure:
+
+When the Cloud returns either **ALL_OFFERS_IN_WALLET** or **ONLY_SELECTED_OFFERS**, the Offer object is populated with data that describes the offers. That data can be leveraged by the POS to invoke existing business logic. Typically, the most useful data to a POS developer for these purposes is the CampaignExternalID. This data element is intended to be a value that a POS system can use to validate a coupon in a business-as-usual way. These values are assigned at the time of campaign creation and since they are values a POS system already handles, it can be an easy way for a retailer to start taking advantage of complementary mobile commerce services.
+The following code sample shows an Offer object:
+
+For the final step of the POS Processed Coupon Redemption flow, the POS informs the Cloud of all offers that were applied to a particular transaction. This enables the Cloud to properly account for redemptions that were processed by the POS system and to represent these redemptions in a digital format. The POS system informs the Cloud of these redemptions via the UpdateTransaction method. UpdateTransaction contains a complex element type of **posProcessedOffers**. The POS system will populate this element with all coupons that were received from the Cloud and redeemed during a given transaction.
+The following UpdateTransaction sample shows how an external coupon is handled by the POS:
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</html>
+
+ 

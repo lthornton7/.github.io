@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Offer Campaign Portal User Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/portalmd.js"></script>
+     <script>
+          $(document).ready(function(){
+              processMarkdown();
+
+          });
+      </script>
+  </head>
+  <body id="body"></body>
+  <div id="markdown" style="display:none">
+<div class="container-fluid">
+<div class="valence">
+<header>
+    Paydiant Offer Portal Guide
+</header>
+</div>
+<div id="wrapper">
+
+<div class="navigator">
+
+
+
+</div>
+<div class="content">
+<div class="content-inner">
+
+hiddenanchor {.anchor #designfeatures}
+
+## Campaign Portal design and features ##
+
+The Paydiant Campaign Portal is a web-based design portal used to construct and distribute mobile wallet offers.
+
+The Paydiant Campaign Portal enables Merchants to:
+
+- Define the parameters and specific Merchant locations where an offer can be redeemed.
+- Gather the artifacts and details needed to design the mobile wallet offer.
+- Target offers to specific users, merchants, or locations.
+- Store location lists for reuse later.
+- Publish the offers to the Ad Network, a collection of Merchants where the offers become available.
+- Establish an optional approval process before publishing offers.
+- Monitor redemption and expiration or offers.
+- Upload externally produced customer and offer lists to generate offers.
+- Customize the color and name of the portal.
+
+hiddenanchor {.anchor #architecture}
+
+## Campaign Portal Architecture ##
+
+The key components of the Campaign Portal include:
+
+| Component | Description |
+| ------ | ----------- |
+|Campaign Portal| The web-based application where Paydiant offer campaigns are designed and published.|
+|Advertising Networks | Collections of Merchants that share an advertising interest. Ad Networks can contain a single Merchant or it can encompass several Merchants and their locations.|
+|Issuer | The Paydiant partner who Issued a mobile wallet. The Issuer subscribes to the Ad Network that suits the Issuer's advertising needs.|
+|Merchant | The branded entity that designs and publishes the offer to an Ad Network.|
+|Offer Campaign | The collection of parameters that define how the offers will be available for redemption and all the elements that are needed to display the offer on the phone such as artwork, text, and redemption locations.|
+|Offer| The offer itself is a set of specifications in the Paydiant Platform that describe the adjustment that will be made to a qualifying transaction if the user is eligible to receive the discount.|
+|Mobile Wallet Users| The mobile wallet customers who have downloaded an Issuer's app and are eligible to receive offers from them.|
+|Portal User| The role of the user in the Campaign Portal who can design, edit, and publish the offers.|
+|Approver | As an optional step, a secondary user can be required to review the offer before it is published.|
+|Notification User| A user who has permission to design a Notification campaign to send messages to the mobile wallet customers about offers or other events.|
+
+The Paydiant Campaign Portal provides a main dashboard where you can search for campaigns and display campaigns by their status of active, pending, and expired. You can return to the main dashboard from other parts of the Portal by clicking on the Logo in the top left corner.
+
+The following illustration shows the organizational architecture of a single Issuer/Single Merchant Ad Network.
+
+
+![Architecture](./images/single_issuer_merchant_ad_network.png) {.single}
+
+ The next illustration shows the organizational architecture of multiple Issuers and Merchants in the same  Ad Network.
+
+![Architecture](./images/multiple_issuer_merchant_ad_network.png) {.single}
+
+
+hiddenanchor {.anchor #userinterface}
+
+## Campaign Portal User Interface ##
+
+The following illustration shows the basic User Interface controls on the main dashboard.
+
+![Architecture](./images/dashboard.png) {.single}
+
+hiddenanchor {.anchor #offerterminology}
+
+## Offer terminology ##
+
+Here are some key terms used when working with Offers:
+
+- Advertising Networks - collections of Merchants where offers are published.
+- Merchants - the Paydiant Acceptance Partners that accept mobile wallet payments.
+- Issuers - the Paydiant entities that have made a mobile wallet available to users.
+- Mobile Apps - the phone-based applications that enable users to pay with their phone.
+- Offer Campaigns - the details that describe how the offers will be made available.
+- Offers - a special incentive available as part of a mobile wallet transaction to encourage mobile wallet users to use their phone to pay and to transact business at a particular Merchant.
+
+See [Terminology](terminology.html?dt=terminology) for a more extensive list of Offer Campaign terms.
+
+hiddenanchor {.anchor #rolebasedsecurity}
+
+## Role-based user security access ##
+
+To manage security of the Campaign Portal, access to different parts of the Portal is controlled by assigning different roles to each user within the Portal. For example, the user who is allowed to design a campaign, cannot add new users to the system or edit the Merchants associated with a campaign.
+
+- The Ad Network Administrator role identifies a user within that Ad Network who can create and manage users and add or remove Merchants from an offer campaign.
+- The Portal User designs and edits the offers.
+- The Push Notification User sends messages via push notifications.
+- An Approver user can optionally be defined to ensure that the details of the offer are correct before publishing it to the mobile users in the Advertising Network.
+
+See [Security user roles](usermanagement.html?dt=roles) for details.
+
+hiddenanchor {.anchor #redemptlocationjump}
+
+## Targeting redemption locations ##
+
+Often the offer can be redeemed at all the places within an Ad Network where the mobile wallet is accepted. The locations can include multiple stores for a single Merchant or multiple Merchant locations. Or a merchant may wish to hone in on specific geographic areas or even individual locations of a particular Merchant in their network. The Campaign Portal is designed to make selecting locations for entire Merchants or selecting specific location easy.
+
+You can also filter the lists of locations by geographic areas to include or exclude specific locations and save these customized lists for later use.
+
+See [Targeting redemption locations](creatnewoffer.html?dt=targetredemptionlocations) and [Using Location Lists](#createnewoffer.html?dt=locationlists) for details.
+
+
+hiddenanchor {.anchor #targetingcustomerjump}
+
+## Targeting customers ##
+
+Merchants can design their offers to incentivize specific users, specific locations, or specific Merchants within their Advertising Network.
+
+You can upload lists of customers that can include currently registered users or new and prospective customer lists. You can also identify an externally designed offer to use as a part of a campaign.
+
+See [Targeting customers](createnewoffer.html?dt=targetcustomers) for details.
+
+
+hiddenanchor {.anchor #help}
+
+## Help {.linked-header #interface}
+
+You can open this help using the **Help** option at the bottom of every screen.
+
+
+hiddenanchor {.anchor #gettingstarted}
+
+## Getting started ##
+
+1. Before you can use the Campaign Portal, the Issuing Partners, Merchants, and Advertising Networks you need to build your campaigns must exist in the Paydiant Platform. Issuing Partners must *subscribe* to an Advertising Network in order for their mobile users to see their offers. Ensure that the Merchants, locations, and Advertising Networks you need have been created and properly associated. You can obtain their names from Paydiant.
+2. Paydiant will also create the first Advertising Network Administrator (Ad Network Admin) for your Advertising Network and provide the username and password for that role.
+3. Login to the Campaign Portal using the Advertising Network Administrator username and passsword. Your Advertising Network name and role is displayed in the upper right of the Campaign Portal screen.
+4. The Advertising Network Administrator can then create other users and assign their roles as necessary by selecting **Manage** and choosing **User Accounts**. See [Create a new user](usermanagement.html?dt=createuser) for details.
+5. Once the other users are created, they can login here with their username and password. Their Advertising Network will be displayed and the tasks that their user role entitles them to are available from the pull-down.
+
+
+hiddenanchor {.anchor #gettingstarted}
+
+### Frequently Asked Questions ###
+
+See [Getting Started FAQ](.pdf) .
+
+
+</div> <!-- /.content-inner -->
+</div> <!-- /.content -->
+
+
+
+</div> <!-- /.container -->
+</div>
+ </div>
+</html>

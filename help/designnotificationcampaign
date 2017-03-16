@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Offer User Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/portalmd.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            processMarkdown();
+
+
+        });
+    </script>
+</head>
+<body id="body"></body>
+<div id="markdown" style="display:none">
+<div class="container-fluid">
+<div class="valence">
+<header>
+Paydiant Offer Portal Guide
+</header>
+</div>
+<div id="wrapper">
+
+<div class="navigator">
+
+
+
+
+</div>
+
+<div class="content">
+<div class="content-inner">
+
+hiddenanchor {.anchor #manageoffer}
+
+## Designing a Notification Campaign ##
+
+Notification campaigns are a set of specifications that can:
+
+  *  notify users about a specific event,
+or to highlight an Offer or Offer Campaign. Notification campaign APIs offer a useful service that can
+intersect with Offers and Offer Campaigns to highlight specific Offers or other events targeted to
+specific groups of users.The methods in this chapter are used to create and manage these kinds of
+Notification campaigns.
+The Notification APIs can be used to:
+• Target a specific subset of users based on location.
+• Define a list of customer IDs that can be assigned by Paydiant or by an external party, such as a
+merchant.
+• Specify the message provided in the notification.
+• Define how the notification is delivered.
+• Set target dates to indicate when the notification are sent to targeted customers.
+The Notification campaign has three components:
+1 Campaign specification - a series of parameters that define the campaign which are processed into a
+unique URI.
+2 Customer target specification - the parameters that identify the users being sent this notification which is
+processed into a unique customer targeting spec URI.
+3 File processing - definitions of how the generated customer file and notification details will be processed
+and uploaded to Paydiant to be ultimately sent to the targeted users as a notification on their phones.
+The following APIs are used to define, query, and upload the components needed
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</html>

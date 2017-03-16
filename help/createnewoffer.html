@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Offer Campaign Portal User Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/portalmd.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            processMarkdown();
+
+        });
+    </script>
+</head>
+<body id="body"></body>
+<div id="markdown" style="display:none">
+<div class="container-fluid">
+<div class="valence">
+<header>
+Paydiant Offer Portal Guide
+</header>
+</div>
+<div id="wrapper">
+
+<div class="navigator">
+
+
+</div>
+
+<div class="content">
+<div class="content-inner">
+
+hiddenanchor {.anchor #createnewoffer}
+
+## Create an offer campaign ##
+
+The campaign defines the parameters of how the offer will be made available, redeemed, etc. The Offer Campaign includes the offer itself which stores the artifacts used when the offer displays in the mobile wallet.
+
+hiddenanchor {.anchor #posversuscloud}
+
+### POS versus Cloud offers ###
+
+Merchants can decide to determine the value for their offers at the POS or in the Cloud or both. It is important to know which kind of processing the Merchants in your offer use because each offer must be processed in the same way across a Merchant. If you need to use different processing types for different Merchants, duplicate one of the offers and re-create it with the other type of Merchant.
+
+|Processing Type | Description|
+|----|----|
+|POS processed| The POS stores the logic used to determine if an offer is eligible and how much to adjust the value by. You do not get any opportunity to set a discount percentage or amount for POS-processed offers--that is done at the POS for those kinds of offers. Any offers that might specify an item, such as *Spend $10, get a hat* are processed by the POS. |
+|Cloud processed| The amount and eligibility is calculated and applied in the Cloud and passed down to the POS. Cloud-processed offers are value based only, such as *Spend $10, get $1 off.* After processing is complete, the information is passed down to the POS.|
+
+
+hiddenanchor {.anchor #startcampaign}
+
+## Starting a new campaign ##
+
+To create a new offer campaign complete the following fields:
+
+1. Log into the Campaign Portal.
+2. Click **+Create New Campaign**.
+3. Select the Merchant this campaign is intended for. If the Ad Network has multiple Merchants, use the pull-down to check all the Merchants this campaign applies to. Be sure that all the Merchants on the campaign use the same type of processing, *POS,* *Cloud,* or *both.* To send an offer to Merchants with different processing types, construct the offer for one type of Merchant, then duplicate the offer and select the Merchants with the other type for that offer.
+5. Enter the name for the campaign at **Campaign Name**. The name is required. You may also enter a **Campaign Description**. These fields are not visible to mobile wallet users using the offer. They are used internally to the Campaign Portal to identify the campaign.
+6. Complete the details that describe the offer itself.
+7. Click **Next** to complete the details about the offer.
+
+hiddenanchor {.anchor #cloudprocessedoffers}
+
+### Amounts for Cloud-processed offers ###
+
+If the Merchants selected above use Cloud-based processing, you must set the value of the offer here. Since POS-based offers calculate amounts at the POS, these fields do not display for POS-based Merchants. Skip to the **Cloud and POS Information** fields below.
+
+The values set here are converted into the Offer Title. Here is a sample set of values:
+
+| Minimum Purchase | Discount Type |Amount| Results in the Offer Title of |
+| ------ | ----------- | ---------- | ----------|
+|10|% |15| Spend $10 get $1 off |
+
+If you do not want to use the automatically-generated title, type in the Offer Title field to change it. This does not change the values used, just the Offer Title.
+
+| Field | Description |
+| ------ | ----------- |
+| Minimum Purchase | Enter the minimum that the mobile wallet customer must spend in order to take advantage of this offer. The least you can enter is $.01. If you do not want the offer to use that value in the title, edit the Offer Title field below.|
+|Discount Type | Use the pull-down to select if this offer is based on a value or a percentage.|
+| Amount | Depending on the selection of the previous field, enter the percentage or value to adjust the total by as a result of using the offer.
+
+hiddenanchor {.anchor #offertitletextimages}
+
+## Offer title, text, and images ##
+
+The following fields are used by both Cloud and POS based offers.
+
+| Field | Description |
+| ------ | ----------- |
+| Offer Title | For most wallet apps, this title appears as the primary text in the offer list view and the detail view. The Offer Title has a maximum length of 25 characters. |
+| Offer Summary | A brief summary (100 characters maximum) that describes what the offer is offering. |
+| Offer Description | You can describe the offer parameters in details here. Up to 2000 characters available.|
+| Offer Image| You can add two images to the offer: one is a standard image form factor and the other is a thumbnail used for smaller listings. You can use the same image scaled differently in these two formats or use different images. To add an image, either drag and drop the image file or use the Upload Image button to browse to a local file to add it.  When you add the Offer Image, scroll the preview to the center image to see how the image will look when the larger format is used. The first preview screen shows a vertical orientation for the thumbnail image while the last preview screen shows a horizontal thumbnail listing.|
+| Offer Terms and Conditions | Enter the text to display as the Terms and Conditions of using the offer using a maximum of 500 characters. For most apps, this information displays as the final sub-section of the offer detail. |
+
+hiddenanchor {.anchor #externalidsskus}
+
+## External Campaign IDs and SKUs ##
+
+| Field | Description |
+| ------ | ----------- |
+| Is there a Campaign External ID? | For POS-processed offers, the Merchant can enter a code in the Campaign External Id field to associate the offer with something external to the Paydiant Platform, such as the offer code on the POS system.  If this offer does not use a Campaign External Id, leave this field blank and an ID will be generated for this campaign that can be used by the POS or other external system as needed.|
+| SKU codes| You can enter a csv list of SKU codes that are part of this campaign. The SKUs are passed to the POS. Leave the field blank if you are not using SKUs as part of the campaign. |
+
+hiddenanchor {.anchor #combinerefund}
+
+## Combining or refunding offers ##
+
+By default a campaign stipulates that the mobile user can use only one of these offers within the same transaction.
+
+| Field | Description |
+| ------ | ----------- |
+| Can this offer be combined?|  To allow the mobile wallet user to use more than one offer from this campaign on the same transaction, set to **Yes.** Setting this value to **Yes** means all offers generated as part of this campaign can be combined.|
+| Can this Offer be Refunded? | By default, the mobile user cannot get a refund on an offer in this campaign. To make the offer refundable, set to **Yes.** If an offer is refundable, the purchase receipt where this offer was redeemed now displays in the list of receipts that are eligible for refund. The amount that can be refunded is the amount that the offer used as a discount. If the offer is indeed refunded, the offer returns to the My Offers tab in the mobile wallet so that it could potentially be used again. If the offer has expired since the purchase, it is not returned to the My Offers tab.|
+
+hiddenanchor {.anchor #activations}
+
+## Number of activations ##
+
+Before an offer can be redeemed, it must be activated in the mobile user's wallet either automatically or manually. The Total Number of Activations field is used to limit the number of times this offer can be made active across the entire campaign. You can also limit the number of activations allowed per customer.
+
+| Field | Description |
+| ------ | ----------- |
+| Total Offer Activations |  Enter the total number of activations that you want to allow for this campaign. Once the limit has been met, no mobile wallet users can activate the offer, even if the campaign is still active. When an offer can no longer add activations, it no longer displays in the Available offers list of qualified wallets. However, the activation pool can re-gain activations if any mobile wallet users who previously activated the offer subsequently remove it from their Activated (My Offers) list. Removing activated offers from the My Offers list frees up that number of activations. In that case the offer again becomes visible in the Available list until the limit is again exhausted. This can occur multiple times during the life cycle of the offer. |
+| Activations allowed per customer | Typically you want a mobile wallet user to be able to activate an offer only once. Enter **1** here to make that criteria apply to this offer. If you want to allow the same mobile wallet user to be able to activate and potentially use this offer multiple times, you can enter the maximum number of activations to allow per customer here. |
+
+See the [Activation type](createnewoffer.html?dt=activationtype) to determine if the offers are activated manually or automatically.
+
+You can use the number of activations to halt a live campaign. If you make the total number of activations less than the number of activations that have already occurred, no further activations will be permitted. This technique can be used if a campaign has a mistake in it. Resetting the activation total is often preferable to deleting a campaign because once a campaign is deleted it is removed from the portal and cannot be used as the basis for a duplicate offer.
+
+hiddenanchor {.anchor #keywords}
+
+## Keywords ##
+
+To help mobile wallet users find your offers, you can enter a set of keywords to use when searching. For example, for an offer that offers $1 off diapers, you might use metadata keywords such as *baby* or *mom.*
+
+| Field | Description |
+| ------ | ----------- |
+| Keyword metadata |  To enter individual tag, type the  tags into the field and press Return. To load a csv list of keywords, drag the file or click **Upload** to browse locally and select the file. If you upload a CSV file, any tags you typed in are overwritten by the upload file contents. |
+
+Click **Next** to save the offer and go to the next set of details.
+
+hiddenanchor {.anchor #targetcustomers}
+
+## Targeting customers ##
+
+By default all users within the specified Merchant locations are sent this offer.
+
+If you instead want to target the offer to specific customers using a list of customer Ids, click **Upload list of specific users.** You can continue to define the details of the offer without providing the exact customer targeting list at this time by clicking **Upload targeting file later.** Click **Continue** to move to the next screen. When you do return to this screen to add a targeting file, be sure to click the appropriate type of file--the file type must be manually entered here.
+
+
+Once you have the files in place, you can drag the csv file into the **Import Targeted Users CSV** box or use **Click to upload** button to browse for the file locally.
+
+When you are ready to upload the targeting file:
+
+1. Go to the main Campaign Portal display.
+2. Select **Pending.**
+2. Select the offer.
+3. Click the setting icon and navigate to the targeted portion of the offer.
+
+You can upload three different kinds of files: customerUris, externalcustomerIds, or Prospect Offers. These are described in more detail below.
+
+It is important to indicate the correct format for the type of file you are uploading. Although all the different files use a CSV format, the files are processed differently depending on the source of the customer list.
+
+If the file format does not match the selection here, the upload may be successful, but the processing will fail. The *File uploaded successfully* message indicates that the file was identified and put in place for processing. It does not perform any validation on the file's format. If the format is incorrect for the selection here, for example, if you selected ExternalId but the CSV file is actually the targeted customerUri file, you get a message such as *IssuingPartnerUri* and *PartnerUri not found.*
+
+hiddenanchor {.anchor #customeruri}
+
+### Customer URIs ###
+
+A CustomerUri list contain a list of the URIs generated in the Paydiant platform for customers. No spaces are permitted. Keep in mind that these customerURIs must be valid for the Merchants that are associated with the offer.
+
+In the following sample, three different customers are being targeted:
+
+`MerchantA:entity:customer#3c7ee095-5a1f-42c7-8d7b-d9deea0b4365`
+`MerchantB:entity:customer#2a58afcf-2b1e-4d5d-9113-634b2245edb4`
+`MerchantB:entity:customer#6a58bbcf-3c2e-2d5a-4142-434a3945adb7`
+
+hiddenanchor {.anchor #externalids}
+
+### External IDs ###
+
+ExternalID files enable targeting using SSO or other external systems. ExternalID files require the Issuing Partner URI and the Partner URI on the first line. All subsequent lines have the external ID.
+
+Use a separate upload file for each Merchant (Acceptance Partner). Each uploaded file can contain externalIds for only a single Merchant.
+
+In this sample, two customers of the Merchant called *Customer A* are targeted.
+
+`MerchantA:entity:acceptancepartner#d84bbdb4-a122-4286-8d7b-31bcc01501e6,`
+`paydiant:entity:partner#32b8d338-0d8c-db0b-b46e-caf761cb2dfc`
+`customer-xxx-11-22-2`
+`customer-xxx-44-2321-12`
+
+hiddenanchor {.anchor #prospectoffers}
+
+### Prospect Offers ###
+
+A Prospect Offers file can include customers that may not yet be registered as app users for which the merchant may just have an ID. It can also include registered user IDs. A Prospect Offers list is used to generate offers, either in a registered users wallet or as a paper coupon that could be scanned, to encourage users to become customers.
+
+The format for Prospect Offer files is a 2-column, csv file where the first column is the externalCustomerId and the second column is the externalOfferUri with a prefix that is provided by Paydiant. The prefix is a code uniquely identifies the partner across the Paydiant Platform. All Prospect Offer files must include this prefix.
+
+
+`23987,BIGSTORE13067`
+`23961,BIGSTORE13067-1`
+`39876,BIGSTORE111489-1`
+
+
+hiddenanchor {.anchor #targetredemptionlocations}
+
+## Targeting redemption locations ##
+
+By default all mobile wallet users can redeem the offer at any location associated with the Merchants identified in the campaign, regardless of where those Merchant locations are.  However, if you want to target certain Merchant locations as a way to incentivize sales at that location, the campaign can instead identify only specific Merchant locations where mobile wallet users will be able to redeem this offer.
+
+You can define the locations where the offer can be redeemed in different ways. You can
+
+- Add all the locations for specific Merchants
+- Include or exclude entire Merchants
+- Specify a customized list of locations within a Merchant based on geography or other criteria.
+
+| Field | Description |
+| ------ | ----------- |
+|Use all Merchants|Click **All Merchant Locations** to include *all* the locations for *all* the Merchants associated with this offer|
+|Specify individual locations| To pick and choose the Locations, first click **Select Merchant Locations.** By default, all Merchants associated with this offer are set to **Yes** which, at this point, is the same as choosing **Use all Merchants.** To define a reduced set of locations for a particular Merchant, first set that Merchant to **No.** A grid of those locations displays. To find all the locations of a particular city, for example, first filter the list using the pull-downs. You can filter by *Merchants,* *Names,* *Cities,* *States,* or *Zips.* Then check the locations that should be included.  All other locations for that Merchant will not be included in this offer. If you decide to include all the locations after all, you can set that location to **Yes.** The locations for that Merchant will disappear from the grid and all that Merchant's locations will receive the offer.|
+
+hiddenanchor {.anchor #redemptionschedules}
+
+### Specifying a redemption schedule ###
+
+The **When will your offer be valid** portion of the screen defines the Redemption Specification for the offer. The Redemption Specification encompasses the span of dates when qualified mobile users can redeem this offer. By default, the Redemption Specification defaults to use a schedule of 24 hours a day, 7 days a week. If you prefer, you can define a detailed **Redemption Schedule** within that span of time to more precisely identify when the offer can be redeemed.
+
+To use the default Redemption Specification, click the calendar icon and select the start and end dates. The box displays the criteria of the default specification.
+
+To refine the Redemption Schedule by day of the week or date of the month, click the **Clock** icon.
+
+You need a separate redemption schedule for each day of the week or date of the month so that the dates encompass the entire redemption date span. For example, to have an offer redeemable Monday through Friday, add 5 separate schedules, one for Monday, one for Tuesday, one for Wednesday, etc. Each day schedule defines the redemption hours for that day.
+
+If the dates you entered fully encompass the Redemption Specification span, the message *Schedule successfully saved* message displays. The message *There are invalid redemption schedule days between Offer Start Date and Offer End Date.* indicates you have not set enough schedules to encompass the entire redemption specification date span. Return to the schedule screen and add the additional schedules needed to fill in the Redemption Specification date span.
+
+Dates and times refer to Coordinated Universal Time (UTC). To check the UTC time in other time zones, click the **UTC** question mark. This displays the EST, CST, MST, and PST times for the currently set UTC time.
+
+| Field | Description |
+| ------ | ----------- |
+|When will your offer be valid?| Enter a start and end data for the span of time when the offer can  be redeemed. You can enter the dates or use the calendar popup, hour, and minute pull-down. The results display in sentence format in the box as *24 hours a day, 7 days a week, Every day of the month.* |
+|Clock| To refine a Redemption Schedule range more precisely or to set individual dates, click the **Clock** icon. Use the pull-downs to select the day of the week or date of the month, then set the times. Click **Save** to store that portion of the schedule. Use the **+** to add another schedule for another day or date until all the valid dates of the offer are defined. Save each schedule as you construct it. When the entire Redemption Specification Schedule time span is covered, click **Next**|
+
+hiddenanchor {.anchor #activationtype }
+
+### Activation type ###
+
+An offer can be made immediately usable by the mobile wallet user when the offer shows up in their wallet and it falls into the redemption schedule dates, or you can design the campaign so that mobile wallet user must explicitly activate the offer by selecting it or setting it to **active.**
+
+Note: This setting is ignored for Prospect Offers because they are automatically activated.
+
+Use the pull-down to indicate how this offer is activated:
+
+| Field | Description |
+| ------ | ----------- |
+|Make offer available| The offer is not immediately active and the user must explicitly activate it within the redemption schedule.|
+|Activate offer| If the offer is eligible for redemption, it is immediately active.|
+
+hiddenanchor {.anchor #processinginstructions}
+
+### Processing instructions ###
+
+When processing customer lists for targeted offers you can determine if the processing should continue regardless of errors or if only fully-valid list files are acceptable. Use the pull-down to set the User Target Type:
+
+| Field | Description |
+| ------ | ----------- |
+|Allow partial success|The processing continues despite failures up to 10 invalid offers.|
+|Fail on error| The targeting processing stops as soon as a single invalid record is encountered.|
+
+hiddenanchor {.anchor #processingresults}
+
+### Processing results ###
+
+You cannot see the effect of some targeting files immediately because these files may be scheduled to be processed by Paydiant and are typically processed overnight.
+
+When the files are in place, click the **Continue** button to add the files to the Platform and schedule them for processing. Once targeting files are uploaded, you can click **Download Reports** to see a report or error log.
+
+After you review and make any adjustments needed to the targeting files, click **Continue** to move to the *Summary* screen which is described next.
+
+hiddenanchor {.anchor #locationlists)
+
+## Using Location Lists ##
+
+Once you have put together a list of specific locations where an offer can be redeemed, you can  store the list and reuse it. You can construct the list either while you build the offer, or separately using the **Manage** --> **Locations Lists** from the main log in screen.
+
+|Action|Description|
+|----|----|
+|Use an existing list| Click the **Select Location List** pull-down to identify it. The list displays so you can check the locations and make adjustments.|
+|Create a new List| Click **Create New** then **Add Locations**. You can click **Choose individual Locations** to display the list of locations for the Merchant shown. If you clear this checkbox, all locations for the displayed Merchant are put into the Location List. You can instead select a new Merchant from the pull-down. Click the check box for the locations you want to include. You can also click **Add All** to quickly use all the displayed locations.|
+|Use an existing csv list|Use **Upload List** to browse to a local file location and add a .csv list to the offer. |
+|Turn the list into a csv file| Click **Download File** to generate a .xls version of the list.|
+|Delete the list | Click ![cog](./images/cog.png) --> Delete.|
+|Make a copy of the list| Click ![cog](./images/cog.png) --> Duplicate.|
+
+Once you have completed the selection of the locations, click **Save** to store the Location List. When constructing the offer, you use the **Save for future use** option offered at the bottom of screen then name the list. Anytime you construct an offer with this Merchant/Ad Network, the list will be shown so you can select it.
+
+hiddenanchor {.anchor #summary}
+
+## Offer Summary ##
+
+The Summary screen gives you an opportunity to review the details you have set for this campaign and to see how the offers will look in the Preview approximation. You can also click on most of the details and make changes from this screen.
+
+| Field | Description |
+| ------ | ----------- |
+| Full Preview | Click to see a rendering of how the offer will look on both iOS and Android devices. The left display shows how the offer looks in various summary settings. The right display shows the offer detail. Use the pull-down to select **iOS** or **Android. ** These previews are just approximations and may not match your offers exactly.|
+| Progress bar | You can click any of the nodes in the progress bar to return to that portion of the offer to change it. |
+| Submit for Approval | If you Ad Network includes an Offer Approval role, the **Submit for Approval** button displays along with the **Save as Pending** button. If the offer is ready, click **Submit for Approval.** An email is sent to the Offer Approver and you can find this campaign in the **Approval** listings. If the offer is not yet ready, click **Save as Pending** to store any changes so you can return later to complete the offer. If no Offer Approver role is assigned to this Ad Network, the **Activate** button displays. Clicking **Activate** in a  non-approval Ad Network, makes the offer available in accordance with the redemption schedule, targeting list, Merchants associated with this Ad Network, and Issuers who have subscribed to this Ad Network. The campaign now displays in the **Active** listing.|
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</html>

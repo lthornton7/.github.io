@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Offer Campaign Portal User Guide</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/portalmd.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            processMarkdown();
+ 
+        });
+    </script>
+</head>
+<body id="body"></body>
+<div id="markdown" style="display:none">
+<div class="container-fluid">
+<div class="valence">
+<header>
+Paydiant Offer Portal Guide
+</header>
+</div>
+<div id="wrapper">
+
+<div class="navigator">
+ 
+
+</div>
+
+<div class="content">
+<div class="content-inner">
+
+hiddenanchor {.anchor #targetcustomers}
+
+## Targeting customers ##
+
+By default all users within the specified Merchant locations are sent this offer. 
+
+If you instead want to target the offer to specific customers using a list of customer Ids, click **Upload list of specific users.** You can continue to define the details of the offer without providing the exact customer targeting list at this time by clicking **Upload targeting file later.** Click **Continue** to move to the next screen. When you do return to this screen to add a targeting file, be sure to click the appropriate type of file--the file type must be manually entered here.
+
+
+Once you have the files in place, you can drag the csv file into the **Import Targeted Users CSV** box or use **Click to upload** button to browse for the file locally.
+
+When you are ready to upload the targeting file:
+
+1. Go to the main Campaign Portal display.
+2. Select **Pending.** 
+2. Select the offer.
+3. Click the setting icon and navigate to the targeted portion of the offer.
+
+You can upload three different kinds of files: customerUris, externalcustomerIds, or Prospect Offers. These are described in more detail below. 
+
+It is important to indicate the correct format for the type of file you are uploading. Although all the different files use a CSV format, the files are processed differently depending on the source of the customer list. 
+
+If the file format does not match the selection here, the upload may be successful, but the processing will fail. The *File uploaded successfully* message indicates that the file was identified and put in place for processing. It does not perform any validation on the file's format. If the format is incorrect for the selection here, for example, if you selected ExternalId but the CSV file is actually the targeted customerUri file, you get a message such as *IssuingPartnerUri* and *PartnerUri not found.*
+
+hiddenanchor {.anchor #customeruri}
+
+### Customer URIs ###
+
+A CustomerUri list contain a list of the URIs generated in the Paydiant platform for customers. No spaces are permitted. Keep in mind that these customerURIs must be valid for the Merchants that are associated with the offer.
+
+In the following sample, three different customers are being targeted:
+
+`MerchantA:entity:customer#3c7ee095-5a1f-42c7-8d7b-d9deea0b4365`
+`MerchantB:entity:customer#2a58afcf-2b1e-4d5d-9113-634b2245edb4`
+`MerchantB:entity:customer#6a58bbcf-3c2e-2d5a-4142-434a3945adb7`
+
+hiddenanchor {.anchor #externalids}
+
+### External IDs ###
+
+ExternalID files enable targeting using SSO or other external systems. ExternalID files require the Issuing Partner URI and the Partner URI on the first line. All subsequent lines have the external ID.
+
+Use a separate upload file for each Merchant (Acceptance Partner). Each uploaded file can contain externalIds for only a single Merchant.
+
+In this sample, two customers of the Merchant called *Customer A* are targeted.
+
+`MerchantA:entity:acceptancepartner#d84bbdb4-a122-4286-8d7b-31bcc01501e6,`
+`paydiant:entity:partner#32b8d338-0d8c-db0b-b46e-caf761cb2dfc`
+`customer-xxx-11-22-2`
+`customer-xxx-44-2321-12`
+    
+hiddenanchor {.anchor #prospectoffers}
+
+### Prospect Offers ###
+
+A Prospect Offers file can include customers that may not yet be registered as app users for which the merchant may just have an ID. It can also include registered user IDs. A Prospect Offers list is used to generate offers, either in a registered users wallet or as a paper coupon that could be scanned, to encourage users to become customers.  
+
+The format for Prospect Offer files is a 2-column, csv file where the first column is the externalCustomerId and the second column is the externalOfferUri with a prefix that is provided by Paydiant. The prefix is a code uniquely identifies the partner across the Paydiant Platform. All Prospect Offer files must include this prefix.
+
+
+`23987,BIGSTORE13067`
+`23961,BIGSTORE13067-1`
+`39876,BIGSTORE111489-1`
+
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</html>
