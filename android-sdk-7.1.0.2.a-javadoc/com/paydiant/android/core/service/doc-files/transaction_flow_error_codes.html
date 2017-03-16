@@ -1,0 +1,362 @@
+<html>
+<head>
+<title>Transaction Flow Error Status Codes</title>
+<style type="text/css">
+h3 {
+    color: #0000Cd;
+    padding-top: 20px;
+}
+h5 {
+    font-size: 16px;
+    font-style: italic;
+}
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+table th {
+    background-color: #A6C0DE;
+}
+table td, th {
+    border: 1px solid #838383;
+    padding: 2px;
+}
+</style>
+</head>
+<body>
+	<a id="retrieveTxMetaData">
+		<h3>Retrieve Transaction Meta Data</h3>
+    </a>
+    
+	<table>
+		<tr>
+			<th>HTTP Status Code</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>503(SERVICE_UNAVAILABLE)</td>
+			<td>Invalid arguments validation</td>
+		</tr>
+		<tr>
+			<td>419(INSUFFICIENT_SPACE_ON_RESOURCE)</td>
+			<td>Invalid Checkout Token Scanned</td>
+		</tr>
+		<tr>
+			<td>409(CONFLICT)</td>
+			<td>Transaction in Use</td>
+		</tr>
+		<tr>
+			<td>406(NOT_ACCEPTABLE)</td>
+			<td>Checkout Token Blocked</td>
+		</tr>
+		<tr>
+			<td>417(EXPECTATION_FAILED)</td>
+			<td>Transaction Timed Out</td>
+		</tr>
+		<tr>
+			<td>508(LOOP_DETECTED)</td>
+			<td>Transaction Not Ready</td>
+		</tr>
+		<tr>
+			<td>416(REQUESTED_RANGE_NOT_SATISFIABLE)</td>
+			<td>Transaction Cancelled</td>
+		</tr>
+		<tr>
+			<td>500(INTERNAL_SERVER_ERROR)</td>
+			<td>Internal Server Error</td>
+		</tr>
+	</table>
+
+	<a id="updateTx">
+		<h3>Update Transaction</h3>
+	</a>
+	<h5>Payment Status Codes</h5>
+
+	<table>
+		<tr>
+			<th>HTTP Status Code</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>201(CREATED)</td>
+			<td>Payment successfully completed.</td>
+		</tr>
+		<tr>
+			<td>200(OK)</td>
+			<td>Partial Payment Status</td>
+		</tr>
+		<tr>
+			<td>503(SERVICE_UNAVAILABLE)</td>
+			<td>Invalid Inputs</td>
+		</tr>
+		<tr>
+			<td>419(INSUFFICIENT_SPACE_ON_RESOURCE)</td>
+			<td>Invalid Checkout token</td>
+		</tr>
+		<tr>
+			<td>417(EXPECTATION_FAILED)</td>
+			<td>Operation Time Out</td>
+		</tr>
+		<tr>
+			<td>416(REQUESTED_RANGE_NOT_SATISFIABLE)</td>
+			<td>Transaction Cancelled</td>
+		</tr>
+		<tr>
+			<td>406(NOT_ACCEPTABLE)</td>
+			<td>Tender Type Not Supported</td>
+		</tr>
+		<tr>
+			<td>400(BAD_REQUEST)</td>
+			<td>Transaction Declined</td>
+		</tr>
+		<tr>
+			<td>405(METHOD_NOT_ALLOWED)</td>
+			<td>Insufficient Funds</td>
+		</tr>
+		<tr>
+			<td>501(NOT_IMPLEMENTED)</td>
+			<td>Processing Error</td>
+		</tr>
+		<tr>
+			<td>508(LOOP_DETECTED)</td>
+			<td>Transaction Not Supported</td>
+		</tr>
+		<tr>
+			<td>504(GATEWAY_TIMEOUT)</td>
+			<td>Invalid Card Number</td>
+		</tr>
+		<tr>
+			<td>505(HTTP_VERSION_NOT_SUPPORTED)</td>
+			<td>Expired card</td>
+		</tr>
+		<tr>
+			<td>510(NOT_EXTENDED)</td>
+			<td>Invalid Transaction</td>
+		</tr>
+		<tr>
+			<td>410(GONE)</td>
+			<td>Invalid Amount</td>
+		</tr>
+		<tr>
+			<td>402(PAYMENT_REQUIRED)</td>
+			<td>Suspected Fraud</td>
+		</tr>
+		<tr>
+			<td>500(INTERNAL_SERVER_ERROR)</td>
+			<td>Internal server error</td>
+		</tr>
+		<tr>
+			<td>409(CONFLICT)</td>
+			<td>Transaction in use</td>
+		</tr>
+		<tr>
+			<td>502(BAD_GATEWAY)</td>
+			<td>Transaction Under Review</td>
+		</tr>
+		<tr>
+			<td>506(VARIANT_ALSO_NEGOTIATES)</td>
+			<td>Invalid Payment Instrument</td>
+		</tr>
+		<tr>
+			<td>507(INSUFFICIENT_STORAGE)</td>
+			<td>Invalid Billing Address</td>
+		</tr>
+		<tr>
+			<td>422(UNPROCESSABLE_ENTITY)</td>
+			<td>Merchant Error</td>
+		</tr>
+		<tr>
+			<td>420(METHOD_FAILURE)</td>
+			<td>Tipping not supported</td>
+		</tr>
+		<tr>
+			<td>421(DESTINATION_LOCKED)</td>
+			<td>Tipping error</td>
+		</tr>
+		<tr>
+			<td>423(LOCKED)</td>
+			<td>Card Deleted</td>
+		</tr>
+		<tr>
+			<td>414(REQUEST_URI_TOO_LONG)</td>
+			<td>Offer not redeemable</td>
+		</tr>
+	</table>
+
+	<h5>Refund Status Codes</h5>
+
+	<table>
+		<tr>
+			<th>HTTP Status Code</th>
+			<th>Description</th>
+			</td>
+		<tr>
+			<td>201(CREATED)</td>
+			<td>Refund transaction success</td>
+		</tr>
+		<tr>
+			<td>400(BAD_REQUEST)</td>
+			<td>Invalid arguments/Refund failed</td>
+		</tr>
+		<tr>
+			<td>500(INTERNAL_SERVER_ERROR)</td>
+			<td>Internal server error</td>
+		</tr>
+		<tr>
+			<td>409(CONFLICT)</td>
+			<td>Refund not supported</td>
+		</tr>
+		<tr>
+			<td>405(METHOD_NOT_ALLOWED)</td>
+			<td>Refund on hold</td>
+		</tr>
+		<tr>
+			<td>406(NOT_ACCEPTABLE)</td>
+			<td>Refund not possible</td>
+		</tr>
+		<tr>
+			<td>407(PROXY_AUTHENTICATION_REQUIRED)</td>
+			<td>Refund data mismatch</td>
+		</tr>
+		<tr>
+			<td>408(REQUEST_TIMEOUT)</td>
+			<td>Refund amount exceeded sale amount</td>
+		</tr>
+		<tr>
+			<td>415(UNSUPPORTED_MEDIA_TYPE)</td>
+			<td>Duplicate transaction</td>
+		</tr>
+		<tr>
+			<td>501(NOT_IMPLEMENTED)</td>
+			<td>Cannot process refund.</td>
+		</tr>
+		<tr>
+			<td>502(BAD_GATEWAY)</td>
+			<td>Transaction under review</td>
+		</tr>
+		<tr>
+			<td>503(SERVICE_UNAVAILABLE)</td>
+			<td>Invalid transaction</td>
+		</tr>
+		<tr>
+			<td>504(GATEWAY_TIMEOUT)</td>
+			<td>Invalid card number</td>
+		</tr>
+		<tr>
+			<td>505(HTTP_VERSION_NOT_SUPPORTED)</td>
+			<td>Invalid expiration date</td>
+		</tr>
+		<tr>
+			<td>506(VARIANT_ALSO_NEGOTIATES)</td>
+			<td>Invalid payment instrument</td>
+		</tr>
+		<tr>
+			<td>507(INSUFFICIENT_STORAGE)</td>
+			<td>Invalid billing address</td>
+		</tr>
+		<tr>
+			<td>422(UNPROCESSABLE_ENTITY)</td>
+			<td>Transaction failed please contact merchant.</td>
+		</tr>
+		<tr>
+			<td>510(NOT_EXTENDED)</td>
+			<td>Transaction failed contact issuer</td>
+		</tr>
+		<tr>
+			<td>419(INSUFFICIENT_SPACE_ON_RESOURCE)</td>
+			<td>Payment code not found or in use</td>
+		</tr>
+		<tr>
+			<td>416(REQUESTED_RANGE_NOT_SATISFIABLE)</td>
+			<td>Transaction Canceled. Please try again</td>
+		</tr>
+		<tr>
+			<td>417(EXPECTATION_FAILED)</td>
+			<td>The transaction has timed out. Please try again.</td>
+		</tr>
+		<tr>
+			<td>423(LOCKED)</td>
+			<td>Payment account has been deleted.</td>
+		</tr>
+	</table>
+
+	<h5>ATM Cash Access Status Codes</h5>
+
+	<table>
+		<tr>
+			<th>HTTP Status Code</th>
+			<th>Description</th>
+			</td>
+		<tr>
+			<td>201(CREATED)</td>
+			<td>Submit ATM cash access successfully invoked.</td>
+		</tr>
+		<tr>
+			<td>503(SERVICE_UNAVAILABLE)</td>
+			<td>Invalid inputs such as null values for request properties.</td>
+		</tr>
+		<tr>
+			<td>417(EXPECTATION_FAILED)</td>
+			<td>Operation time out.</td>
+		</tr>
+		<tr>
+			<td>416(REQUESTED_RANGE_NOT_SATISFIABLE)</td>
+			<td>Transaction cancelled</td>
+		</tr>
+		<tr>
+			<td>406(NOT_ACCEPTABLE)</td>
+			<td>Tender type not supported for cash access</td>
+		</tr>
+		<tr>
+			<td>400(BAD_REQUEST)</td>
+			<td>Transaction declined.</td>
+		</tr>
+		<tr>
+			<td>405(METHOD_NOT_ALLOWED)</td>
+			<td>Insufficient funds</td>
+		</tr>
+		<tr>
+			<td>409(CONFLICT)</td>
+			<td>Transaction in use</td>
+		</tr>
+		<tr>
+			<td>501(NOT_IMPLEMENTED)</td>
+			<td>Processing error</td>
+		</tr>
+		<tr>
+			<td>504(GATEWAY_TIMEOUT)</td>
+			<td>Invalid card number</td>
+		</tr>
+		<tr>
+			<td>505(HTTP_VERSION_NOT_SUPPORTED)</td>
+			<td>Expired card</td>
+		</tr>
+		<tr>
+			<td>510(NOT_EXTENDED)</td>
+			<td>Invalid transaction</td>
+		</tr>
+		<tr>
+			<td>500(INTERNAL_SERVER_ERROR)</td>
+			<td>Internal server error</td>
+		</tr>
+		<tr>
+			<td>410(GONE)</td>
+			<td>Invalid amount</td>
+		</tr>
+		<tr>
+			<td>402(PAYMENT_REQUIRED)</td>
+			<td>Suspected fraud</td>
+		</tr>
+		<tr>
+			<td>508(LOOP_DETECTED)</td>
+			<td>Transaction not Supported</td>
+		</tr>
+		<tr>
+			<td>506(VARIANT_ALSO_NEGOTIATES)</td>
+			<td>Transaction Not Allowed</td>
+		</tr>
+	</table>
+
+</body>
+</html>
